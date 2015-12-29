@@ -4,6 +4,7 @@
 
 from tournament import *
 
+
 def testDeleteMatches():
     deleteMatches()
     print "1. Old matches can be deleted."
@@ -63,8 +64,8 @@ def testStandingsBeforeMatches():
     registerPlayer("Randy Schwartz")
     standings = playerStandings()
     if len(standings) < 2:
-        raise ValueError("Players should appear in playerStandings even before "
-                         "they have played any matches.")
+        raise ValueError("Players should appear in playerStandings even"
+                         " before they have played any matches.")
     elif len(standings) > 2:
         raise ValueError("Only registered players should appear in standings.")
     if len(standings[0]) != 4:
@@ -74,9 +75,10 @@ def testStandingsBeforeMatches():
         raise ValueError(
             "Newly registered players should have no matches or wins.")
     if set([name1, name2]) != set(["Melpomene Murray", "Randy Schwartz"]):
-        raise ValueError("Registered players' names should appear in standings, "
-                         "even if they have no matches played.")
-    print "6. Newly registered players appear in the standings with no matches."
+        raise ValueError("Registered players' names should appear in"
+                         " standings, even if they have no matches"
+                         " played.")
+    print "6. Newly registered players appear in standings with no matches."
 
 
 def testReportMatches():
@@ -97,7 +99,8 @@ def testReportMatches():
         if i in (id1, id3) and w != 1:
             raise ValueError("Each match winner should have one win recorded.")
         elif i in (id2, id4) and w != 0:
-            raise ValueError("Each match loser should have zero wins recorded.")
+            raise ValueError("Each match loser should have zero wins"
+                             " recorded.")
     print "7. After a match, players have updated standings."
 
 
@@ -124,6 +127,7 @@ def testPairings():
             "After one match, players with one win should be paired.")
     print "8. After one match, players with one win are paired."
 
+
 def testPairingsOdd():
     deleteMatches()
     deletePlayers()
@@ -140,8 +144,7 @@ def testPairingsOdd():
     if len(pairings) != 2:
         raise ValueError(
             "For five players, swissPairings should return two pairs.")
-    id5 
-    print "9. For odd number of players, last player will receive a bye" 
+    print "9. For odd number of players, last player will receive a bye"
 
 
 if __name__ == '__main__':
@@ -155,5 +158,3 @@ if __name__ == '__main__':
     testPairings()
     testPairingsOdd()
     print "Success!  All tests pass!"
-
-
